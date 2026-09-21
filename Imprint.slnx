@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Imprint/Imprint.vcxproj" Id="db0217b6-c4f4-4f0f-b884-e8d01e253586" />
+</Solution>
