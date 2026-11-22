@@ -8,12 +8,12 @@
 class Version
 {
 public:
-	std::vector<unsigned char> build(const Manifest& manifest);
+	std::vector<unsigned char> build(Manifest const& manifest);
 
 private:
-	std::size_t begin(const std::wstring& key, WORD length, WORD type);
+	std::size_t begin(std::wstring const& key, WORD length, WORD type);
 	void end(std::size_t start);
-	void append(const void* data, std::size_t size);
+	void append(void const* data, std::size_t size);
 
 	std::vector<unsigned char> m_Data;
 };

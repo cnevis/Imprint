@@ -14,7 +14,7 @@ int wmain(int argc, wchar_t* argv[])
 
 	try
 	{
-		const std::filesystem::path input = std::filesystem::absolute(argv[2]);
+		std::filesystem::path const input = std::filesystem::absolute(argv[2]);
 		std::filesystem::path output;
 
 		if (argc == 4)
@@ -26,13 +26,14 @@ int wmain(int argc, wchar_t* argv[])
 			output = input.parent_path() / (input.stem().wstring() + L".published.exe");
 		}
 
-		const auto manifest = Manifest::load(std::filesystem::absolute(argv[1]));
-		publish(input, output, manifest);
+		Manifest const manifest = Manifest::load(std::filesystem::absolute(argv[1]));
+		Executable exe(input, output);
+		exe.publish(manifest);
 		std::wcout << L"Created " << output.native() << L'\n';
 
 		return 0;
 	}
-	catch (const std::exception& error)
+	catch (std::exception const& error)
 	{
 		std::cerr << "imprint: " << error.what() << '\n';
 		return 1;
