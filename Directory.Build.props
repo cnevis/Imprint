@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <RepositoryRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\'))</RepositoryRoot>
-    <BuildRoot>$(RepositoryRoot)Build\MSBuild\</BuildRoot>
-    <BuildRoot Condition="'$(Platform)' != 'x64'">$(BuildRoot)$(Platform)\</BuildRoot>
-    <OutDir>$(BuildRoot)$(Configuration)\Output\</OutDir>
-    <IntDir>$(BuildRoot)$(Configuration)\obj\$(MSBuildProjectName)\</IntDir>
+    <BuildDir>$(MSBuildThisFileDirectory)Build\MSBuild\</BuildDir>
+    <BuildDir Condition="'$(Platform)' != 'x64'">$(BuildDir)$(Platform)\</BuildDir>
+    <OutDir>$(BuildDir)$(Configuration)\Output\</OutDir>
+    <IntDir>$(BuildDir)$(Configuration)\obj\$(MSBuildProjectName)\</IntDir>
     <VcpkgEnableManifest>true</VcpkgEnableManifest>
-    <VcpkgManifestRoot>$(RepositoryRoot)</VcpkgManifestRoot>
-    <VcpkgInstalledDir>$(RepositoryRoot)Build\vcpkg\</VcpkgInstalledDir>
+    <VcpkgManifestRoot>$(MSBuildThisFileDirectory)</VcpkgManifestRoot>
+    <VcpkgInstalledDir>$(MSBuildThisFileDirectory)Build\vcpkg\</VcpkgInstalledDir>
     <VcpkgTriplet Condition="'$(Platform)' == 'x64'">x64-windows-static</VcpkgTriplet>
     <VcpkgTriplet Condition="'$(Platform)' == 'Win32'">x86-windows-static</VcpkgTriplet>
     <VcpkgUseStatic>true</VcpkgUseStatic>

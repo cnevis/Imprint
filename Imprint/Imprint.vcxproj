@@ -71,7 +71,6 @@
   <PropertyGroup Label="UserMacros">
     <TargetName>imprint</TargetName>
   </PropertyGroup>
-  <Import Project="..\msbuild\Common.props" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
